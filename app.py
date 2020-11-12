@@ -4,6 +4,7 @@ from flask import Flask, request, render_template, redirect, flash, session, jso
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, Cupcake
 from secrets import secret_key
+from forms import AddCupcakeForm
 
 app = Flask(__name__)
 
@@ -90,5 +91,6 @@ def homepage():
     """test"""
 
     cupcakes =  Cupcake.query.all() 
+    form = AddCupcakeForm()
 
-    return render_template('index.html', cupcakes=cupcakes)
+    return render_template('index.html', cupcakes=cupcakes, form=form)
