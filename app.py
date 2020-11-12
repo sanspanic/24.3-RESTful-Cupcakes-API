@@ -56,6 +56,33 @@ def create_cupcake():
     # Return with status code 201 --- return tuple (json, status)
     return (response, 201)
 
+@app.route('/api/cupcakes/<int:cupcake_id>', methods=["PATCH"])
+def update_cupcake(cupcake_id):
+    """Update a particular cupcake and respond with JSON of the updated instance"""
+
+    cupcake = Cupcake.query.get_or_404(cupcake_id)
+    data = request.json
+
+    cupcake.flavour = data.get('flavour', cupcake.flavour)
+    cupcake.size = data.get('size', cupcake.size)
+    cupcake.rating = data.get('rating', cupcake.rating)
+    cupcake.image = data.get('image', cupcake.image)
+
+    db.session.commit()
+
+    return jsonify(cupcake=cupcake.serialize())
+
+@app.route('/api/cupcakes/<int:cupcake_id>', methods=["DELETE"])
+def delete_cupcake(cupcake_id):
+    """Deletes a particular cupcake"""
+
+    cupcake = Cupcake.query.get_or_404(cupcake_id)
+
+    db.session.delete(cupcake)
+    db.session.commit()
+
+    return jsonify(message="deleted")
+
 # ROUTES FOR THE WEBSITE, RETURNING HTML
 
 @app.route('/')
