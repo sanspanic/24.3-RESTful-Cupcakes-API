@@ -15,14 +15,14 @@ db.create_all()
 
 
 CUPCAKE_DATA = {
-    "flavor": "TestFlavor",
+    "flavour": "TestFlavor",
     "size": "TestSize",
     "rating": 5,
     "image": "http://test.com/cupcake.jpg"
 }
 
 CUPCAKE_DATA_2 = {
-    "flavor": "TestFlavor2",
+    "flavour": "TestFlavor2",
     "size": "TestSize2",
     "rating": 10,
     "image": "http://test.com/cupcake2.jpg"
@@ -59,7 +59,7 @@ class CupcakeViewsTestCase(TestCase):
                 "cupcakes": [
                     {
                         "id": self.cupcake.id,
-                        "flavor": "TestFlavor",
+                        "flavour": "TestFlavor",
                         "size": "TestSize",
                         "rating": 5,
                         "image": "http://test.com/cupcake.jpg"
@@ -77,7 +77,7 @@ class CupcakeViewsTestCase(TestCase):
             self.assertEqual(data, {
                 "cupcake": {
                     "id": self.cupcake.id,
-                    "flavor": "TestFlavor",
+                    "flavour": "TestFlavor",
                     "size": "TestSize",
                     "rating": 5,
                     "image": "http://test.com/cupcake.jpg"
@@ -99,7 +99,7 @@ class CupcakeViewsTestCase(TestCase):
 
             self.assertEqual(data, {
                 "cupcake": {
-                    "flavor": "TestFlavor2",
+                    "flavour": "TestFlavor2",
                     "size": "TestSize2",
                     "rating": 10,
                     "image": "http://test.com/cupcake2.jpg"
