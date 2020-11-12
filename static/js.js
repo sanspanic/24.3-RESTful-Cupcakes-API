@@ -8,7 +8,7 @@ function generateCupcakeHTML(cupcake) {
   return `
     <div data-cupcake-id=${cupcake.id}>
       <li>
-        ${cupcake.flavor} / ${cupcake.size} / ${cupcake.rating}
+        ${cupcake.flavour} / ${cupcake.size} / ${cupcake.rating}
         <button class="delete-button">X</button>
       </li>
       <img class="Cupcake-img"
@@ -50,7 +50,6 @@ $("#add-new-cupcake-form").on("submit", async function (evt) {
   $("#cupcakes-list").append(newCupcake);
   $("#new-cupcake-form").trigger("reset");
 });
-
 
 /** handle clicking delete: delete cupcake */
 
